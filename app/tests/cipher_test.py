@@ -1,4 +1,4 @@
-from services.ciphers.transposition import encode, decode
+from app.services.ciphers.transposition import encode, decode
 
 
 def test_encode():

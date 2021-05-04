@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
-from schemas.ciphers import Response as CipherResponse, Request as CipherRequest
-from schemas.user import User
-from services.ciphers.transposition import encode, decode
-from services.auth import authenticate_user
+from app.schemas.ciphers import Response as CipherResponse, Request as CipherRequest
+from app.schemas.user import User
+from app.services.ciphers.transposition import encode, decode
+from app.services.auth import authenticate_user
 
 
-router = APIRouter(prefix="/api/v1",)
+router = APIRouter(prefix="/api/v1")
 
 
 @router.get('/')

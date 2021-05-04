@@ -1,7 +1,9 @@
 import fastapi
 import uvicorn
-from routes.api import router as api_router
 
+from app.database.connection import engine
+from app.models.user import Base
+from app.routes.api import router as api_router
 
 app = fastapi.FastAPI()
 
@@ -12,6 +14,7 @@ def prepare_routes():
 
 @app.on_event("startup")
 def startup_event():
+    Base.metadata.create_all(bind=engine)
     prepare_routes()
 
 

@@ -2,10 +2,10 @@ import pytest
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
-from models.user import User as UserEntity
-from repositories.user_repository import save_user, get_user_by_username, get_users
-from schemas.user import UserCreate
-from tests.database.db_fixtures import db_session, db_session_factory, db_tables, db_engine
+from app.models.user import User as UserEntity
+from app.repositories.user_repository import save_user, get_user_by_username, get_users
+from app.schemas.user import UserCreate
+from app.tests.database.db_fixtures import db_session, db_session_factory, db_tables, db_engine
 
 
 @pytest.fixture(scope='session')

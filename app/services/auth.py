@@ -4,12 +4,9 @@ from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 from os import getenv
 
-from database.connection import engine, get_db
-from repositories.user_repository import get_user_by_username
-from schemas.user import User
-from models.user import Base
-
-Base.metadata.create_all(bind=engine)
+from app.database.connection import get_db
+from app.repositories.user_repository import get_user_by_username
+from app.schemas.user import User
 
 SECRET_KEY = getenv('SECRET_KEY', 'not_so_secret')
 ALGORITHM = getenv('ALGORITHM', 'HS256')

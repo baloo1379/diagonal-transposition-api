@@ -1,14 +1,16 @@
 import pytest
 from fastapi.testclient import TestClient
 from requests.auth import HTTPBasicAuth
-from seed import seeder
+from app.seed import seeder
 
-from main import app
+from app.main import app
+from app.tests.database.db_fixtures import db_session, db_session_factory, db_tables, db_engine
 
 
 @pytest.fixture(autouse=True, scope='module')
-def setup():
-    seeder()
+@pytest.mark.usefixtures('db_session')
+def setup(db_session):
+    seeder(db_session)
     yield
 
 
