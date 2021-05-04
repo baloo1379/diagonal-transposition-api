@@ -14,12 +14,12 @@ def health():
 
 
 @router.post('/encode', response_model=CipherResponse)
-def encode_text(data: CipherRequest, current_user: User = Depends(authenticate_user)):
-    result: str = encode(data.secret, data.text)
+async def encode_text(data: CipherRequest, current_user: User = Depends(authenticate_user)):
+    result: str = await encode(data.secret, data.text)
     return {"text": result}
 
 
 @router.post('/decode', response_model=CipherResponse)
-def decode_secret(data: CipherRequest, current_user: User = Depends(authenticate_user)):
-    result: str = decode(data.secret, data.text)
+async def decode_secret(data: CipherRequest, current_user: User = Depends(authenticate_user)):
+    result: str = await decode(data.secret, data.text)
     return {"text": result}

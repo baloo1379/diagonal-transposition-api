@@ -1,7 +1,7 @@
 from math import ceil
 
 
-def encode(secret: str, text: str) -> str:
+async def encode(secret: str, text: str) -> str:
     width: int = len(secret)
     height: int = ceil(len(text)/width)
     length: int = width * height
@@ -30,7 +30,7 @@ def encode(secret: str, text: str) -> str:
     return result
 
 
-def decode(secret: str, text: str) -> str:
+async def decode(secret: str, text: str) -> str:
     width: int = len(secret)
     height: int = ceil(len(text)/width)
     length: int = width * height

@@ -2,14 +2,10 @@ from fastapi import Depends, status, HTTPException
 from fastapi.security import HTTPBasicCredentials, HTTPBasic
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
-from os import getenv
 
 from app.database.connection import get_db
 from app.repositories.user_repository import get_user_by_username
 from app.schemas.user import User
-
-SECRET_KEY = getenv('SECRET_KEY', 'not_so_secret')
-ALGORITHM = getenv('ALGORITHM', 'HS256')
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 security = HTTPBasic()

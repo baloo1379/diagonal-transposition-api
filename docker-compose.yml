@@ -7,8 +7,6 @@ services:
       context: .
       dockerfile: ./Dockerfile
     environment:
-      SECRET_KEY: ${SECRET_KEY}
-      ALGORITHM: ${ALGORITHM}
       DEFAULT_USER: ${DEFAULT_USER}
       DEFAULT_PASSWORD: ${DEFAULT_PASSWORD}
       DATABASE_URL: ${DATABASE_URL}
