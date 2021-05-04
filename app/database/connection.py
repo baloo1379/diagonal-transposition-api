@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker, Session
 from os import getenv
 
 engine = create_engine(
-    getenv('DATABASE_URL', 'sqlite:///database.sqlite3'), connect_args={"check_same_thread": False},
+    getenv('DATABASE_URL', 'sqlite:///./app/database.sqlite3'), connect_args={"check_same_thread": False},
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
