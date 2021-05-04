@@ -10,8 +10,10 @@ def prepare_routes():
     app.include_router(api_router)
 
 
+@app.on_event("startup")
+def startup_event():
+    prepare_routes()
+
+
 if __name__ == '__main__':
-    prepare_routes()
     uvicorn.run(app)
-else:
-    prepare_routes()

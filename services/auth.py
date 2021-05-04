@@ -2,6 +2,7 @@ from fastapi import Depends, status, HTTPException
 from fastapi.security import HTTPBasicCredentials, HTTPBasic
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
+from os import getenv
 
 from database.connection import engine, get_db
 from repositories.user_repository import get_user_by_username
@@ -10,8 +11,8 @@ from models.user import Base
 
 Base.metadata.create_all(bind=engine)
 
-SECRET_KEY = "not_so_secret"
-ALGORITHM = "HS256"
+SECRET_KEY = getenv('SECRET_KEY', 'not_so_secret')
+ALGORITHM = getenv('ALGORITHM', 'HS256')
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 security = HTTPBasic()
@@ -33,7 +34,7 @@ def get_password_hash(password):
     return pwd_context.hash(password)
 
 
-def get_user(db: Session, username: str):
+def get_user(db: Session, username: str) -> User:
     user = get_user_by_username(db, username)
     if not user:
         return abort_authentication()
