@@ -3,7 +3,7 @@
 ## Szyfr
 
 Postanowiłem zaimplementować szyfr przestawieniowy kolumnowy z wariacją w postaci odczytywania kolumn tabeli na ukos, czyli z każdym wierszem zmieniam kolumnę o 1 w lewo.
-Szyfr ten wykorzystuje klucz do operacji przestawiania, dlatego najlepiej, kiedy jest on jednym, niezadługim słowem.
+Szyfr ten wykorzystuje klucz do operacji przestawiania, dlatego najlepiej, kiedy jest on jednym, niedługim słowem.
 
 Pierwszy krok to wpisanie klucza oraz tekstu do tabeli o szerokości klucza i uzupełnienie pustych miejsc na końcu np. spacją.
 
@@ -53,7 +53,7 @@ W plikach projektu znajduje się skrypt, który umożliwia utworzenie użytkowni
 
 Aby uruchomić go w kontenerze należy najpierw podłączyć się do niego
 
-    docker exce -it cipher /bin/bash
+    docker exec -it cipher /bin/bash
 
 oraz wykonać w środku polecenie
 
