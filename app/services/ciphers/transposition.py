@@ -2,6 +2,14 @@ from math import ceil
 
 
 async def encode(secret: str, text: str) -> str:
+    """
+    Encrypt plain text with diagonal transposition cipher
+
+    :param secret: a short text
+    :param text: plain text message to be encrypted
+    :return: ciphertext
+    """
+
     width: int = len(secret)
     height: int = ceil(len(text)/width)
     length: int = width * height
@@ -31,6 +39,14 @@ async def encode(secret: str, text: str) -> str:
 
 
 async def decode(secret: str, text: str) -> str:
+    """
+    Decrypt ciphertext encrypted with diagonal transposition cipher
+
+    :param secret: a short text, same as used in encryption
+    :param text: ciphertext to be decrypted
+    :return: plain text
+    """
+
     width: int = len(secret)
     height: int = ceil(len(text)/width)
     length: int = width * height

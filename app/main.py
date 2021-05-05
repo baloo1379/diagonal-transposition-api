@@ -5,7 +5,11 @@ from app.database.connection import engine
 from app.models.user import Base
 from app.routes.api import router as api_router
 
-app = fastapi.FastAPI()
+app = fastapi.FastAPI(
+    title='Transposition API',
+    description='Diagonal transposition cipher in python',
+    version='1.0.0'
+)
 
 
 def prepare_routes():

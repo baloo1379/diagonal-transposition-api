@@ -58,3 +58,7 @@ Aby uruchomić go w kontenerze należy najpierw podłączyć się do niego
 oraz wykonać w środku polecenie
 
     python ./app/seed.py
+
+## Dokumentacja API
+
+Znajduje się pod [/docs](127.0.0.1:80/docs)
