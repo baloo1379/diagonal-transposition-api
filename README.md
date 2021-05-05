@@ -61,4 +61,4 @@ oraz wykonać w środku polecenie
 
 ## Dokumentacja API
 
-Znajduje się pod [/docs](127.0.0.1:80/docs)
+Znajduje się pod [/docs](http://127.0.0.1:80/docs)
